@@ -1,0 +1,12 @@
+{% extends "pages/base.html" %}
+
+{% block title %} {{post.title}} {% endblock %}
+
+{% block content %}
+<h4> {{post.title}} </h4>
+<h3>{{post.body|safe|linebreaks}}</h3>
+
+
+<img src="{{post.image.url}}" width="500px" height="300px" />
+
+{% endblock %}

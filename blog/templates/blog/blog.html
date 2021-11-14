@@ -1,0 +1,55 @@
+{% extends "pages/base.html" %}
+
+{% block title %}blog{% endblock %}
+
+{% block content %}
+<div style="z-index:2">
+<ul style="list-style:none, float: right"class="row">
+{% for post in Posts %}
+    
+     
+        
+
+                {% comment %} <h4> {{post.date|date:'d-m-Y'}} <a href = '{% url 'post' post.id%}'>{{post.title}}</a> </h4>
+                <img src="{{post.image.url}}" width="500px" height="300px" />            {% endcomment %}
+                    <li  class="col-3" >
+                        <a href="#" style="text-decoration:none;">
+                            <div class="card mb-4">
+                                <span>
+                                    <img src="{{post.image.url}}" class="card-img-top" style="width:70%; height:160px; margin-left:15%" />
+                                </span>
+
+                                <div class="card-body" id="c">
+                                    <h5 class="card-title"> Tên : {{post.title}}  </h5>
+
+                                    
+                                    <span class="card-text">Ngày xuất: {{post.date|date:'d-m-Y'}} </span><br />
+                                    <span class="card-text"> Mô tả:  {{post.body}}  Vnđ<br /></span>
+                                    {% comment %} <span class="card-text"> Mô tả:  {{post.title}}  Vnđ<br /></span> {% endcomment %}
+                                    <a class="btn btn-primary" style="color:#ffffff" href="#"> Chọn </a>
+                                    <a class="btn btn-primary" style="color:#ffffff" href="#"> Xem </a>
+                                    <a class="btn btn-primary" style="color:#ffffff" href="#"> Giỏ hàng </a>
+
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+{% endfor %}
+                
+            </ul>
+
+        </div>
+    </main>
+   
+
+{% comment %} <style>
+
+    div #c :hover {
+        /*width: 150px;
+        height: 80px;*/
+        background-color: #92b5da80;
+        -ms-transform: scaleX(1); /* IE 9  */
+        transform: scaleY(1.1);
+    }
+</style> {% endcomment %}
+{% endblock %}
